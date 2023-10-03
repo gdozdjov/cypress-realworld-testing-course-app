@@ -1,6 +1,12 @@
 /// <reference types="cypress" />
 
-Cypress.Commands.add('getByData', (selector) => {
+declare namespace Cypress {
+    interface Chainable {
+      getByData(dataTestAttribute: string): Chainable<JQuery<HTMLElement>>
+    }
+  }
+
+Cypress.Commands.add("getByData", (selector) => {
     return cy.get(`[data-test=${selector}]`)
 })
 
