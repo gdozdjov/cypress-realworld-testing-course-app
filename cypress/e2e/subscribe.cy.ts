@@ -26,8 +26,15 @@ describe('Subscription Page', () => {
         });
     });
 
-    context('Page Validation', () => {
-
+    context('Course Section', () => {
+        it('Page 1', () => {
+            cy.getByData('course-0').find('a').eq(3).click()
+            cy.location('pathname').should('eq', '/testing-your-first-application')
+        });
+        it.only('Page 2', () => {
+            cy.get('.mt-24').find('a').eq(0).click()
+            
+        });
     });
 
 });
